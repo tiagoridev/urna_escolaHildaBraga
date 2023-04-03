@@ -2,17 +2,15 @@
     margin: 0;
     list-style: none;
     padding: 0;
-    box-sizing: border-box;       
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif   ;
 }
 button{
     cursor: pointer;
     border: none;
     box-shadow: 3px 3px 0px #555;
 }
-input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-}
+
 body{
     display: flex;
     justify-content: center;
@@ -22,7 +20,7 @@ body{
     background-color: #dbd5c9;
     padding: 1.88rem;
     display: grid;
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 15.63rem;
     gap: 20px;
 }
 #tela{
@@ -32,33 +30,108 @@ body{
     border: 2px solid #858383 ;
     display: flex;
     flex-direction: column; 
+    
 }
 #tela .commands{
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 120px;
+    grid-template-columns: 1fr 7.5rem;
+    /* background-color: blue; */
+    padding: 1.25rem 0.63rem;
 }
 .commands .photo{
-    background-color: #48c071;
+    /* background-color: #48c071; */
+}
+.informations{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+#school-name{
+    font-size: 1.25rem;
+    /* text-align: center;
+    background-color: red; */
+    padding: 10px 0px; 
+    text-align: center;
+    background-color: #999292;
+    color: #000;
+    font-weight: bold;
+}
+.informations-title{
+    font-size: 1.13rem;
+    /* background-color: purple; */
+    text-align: center;
+    font-weight: normal;
+}
+.position  {
+    font-size: 0.94rem;
+    text-align: center;
+}
+.numbers{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    /* background-color: #F09046; */
+}
+input{
+    outline: none; 
+}
+input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;        
+}
+input.informations-numbers{
+    width: 3.13rem;
+    height: 3.75rem;
+    background-color: transparent;
+    border: 2px solid #555;
+    font-size: 3.75rem;
+    text-align: center;
+}
+.blink{
+    animation: blink .8s infinite;
+}
+
+@keyframes blink{
+    0%{ opacity: 0.2;}
+    50% { opacity: 1;}
+    100% { opacity: 0.2;}
+}
+.candidates-name{
+    text-align: center;
 }
 #tela .orientation{
-    height: 60px;
+    height: 3.75rem;
     line-height: 1.3em;
-    font-size: 14px;
+    font-size: 0.88rem;    
     border-top: 1px solid #000;
-    padding-left: 10px;
-    
+    padding-left: 0.63rem;    
+}
+.photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+.photo img{
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
 }
 #keyboards{    
     background-color: #403a3a;
 }
 .primary-keyboard{    
-    padding: 20px;
-    display: flex;
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.94rem;
+    /* display: flex;
     flex-wrap:wrap;
     justify-content: center;
-    gap: 15px;    
-    
+    gap: 15px;     */    
+}
+.primary-keyboard li:last-child{
+    grid-column: 2;
 }
 .primary-item{
     padding: 10px 20px;
@@ -71,8 +144,8 @@ body{
    display: flex;
    justify-content: center;
    align-items: flex-end;
-   gap: 15px;
-   padding: 10px;
+   gap: 0.94rem;
+   padding:0.63rem;
 }
 .secondary-item{
     color: #1f1f1f;
@@ -89,13 +162,49 @@ body{
 }
 
 
-@media (max-width: 500px) {
+
+@media (max-width: 900px) {
+    #tela{
+        max-width: 18.75rem;
+    }
+    #tela .commands{      
+        grid-template-columns: 1fr ;        
+        padding: 10px 10px;
+    }
     #urna{
         grid-template-columns: 1fr;
+        width: 22.5rem;
+    }
+    input.informations-numbers{
+        width: 2.13rem;
+        height: 2.75rem;      
+    }
+    .photo{
+        grid-row: 2;
+        width: 5rem;
+        margin: 10px auto 0px; 
+        
+    }
+    
+    #keyboards{    
+        max-width: 18.75rem;        
+    }
+    .primary-keyboard{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.94rem;
+        margin-left: 1.25rem;
+        /* display: flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        gap: 15px;     */    
+    }
+    .primary-item{
+        padding: 10px 20px;
+        background-color: #000;
+        color: #f0ede4;
+        font-size: 1.56rem;
+        font-weight: bold;
     }
 }
 
-.informations-numbers{
-    width: 20px;
-    height: 20px;
-}

@@ -10,23 +10,26 @@
 </head>
 <body>
     <main id="urna">
-        <div id="tela">
-           <section class="commands">
-                <div class="informations">
-                    <h1 class="informations-title">SEU VOTO PARA</h1>
-                    <h2 class="position">REPRESENTANTE</h2>
-                    <input class="informations-numbers" type="number" >
-                    <input class="informations-numbers" type="number">                    
-                    <p>Nome: Britney Spears</p>
+        <div id="tela"> 
+        <span id="school-name">Escola Municipal Hilda Braga</span>           
+           <section class="commands">                      
+                <div class="informations">                    
+                    <h1 class="informations-title">SEU VOTO PARA:</h1>
+                    <h2 class="position">REPRESENTANTE DA TURMA</h2>
+                    <div class="numbers">
+                        <input class="informations-numbers blink" type="number" readonly="readonly" id="input1">
+                        <input class="informations-numbers " type="number" readonly="readonly" id="input2">
+                    </div>                 
+                    <p class="candidates-name">Nome: Bart Simpson</p>
                 </div>
-                <div class="photo">
-                    ......
+                <div class="photo">                    
+                        <img src="./assets/imgs/bart.jpg" alt="Foto do candidato Bart">
                 </div>
            </section>
            <div class="orientation">
             <p>Aperte a tecla: <br/>
-               CONFIRMA: Para confirmar seu voto.<br/>
-               CORRIGE: Para corrigir seu voto. 
+               CORRIGE: Para corrigir seu voto.<br/>
+               CONFIRMA: Para confirmar seu voto.
             </p>
            </div>
         </div>
@@ -57,7 +60,7 @@
 
 
 
-
+    <script src="./assets/js/etapas.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
