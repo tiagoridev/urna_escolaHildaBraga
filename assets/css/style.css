@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    box-sizing: border-box;       
+}
+button{
+    cursor: pointer;
+    border: none;
+    box-shadow: 3px 3px 0px #555;
+}
+input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#urna{
+    background-color: #dbd5c9;
+    padding: 1.88rem;
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 20px;
+}
+#tela{
+    width: 31.25rem;
+    /* height: auto; */
+    background-color: #c1c1c1;
+    border: 2px solid #858383 ;
+    display: flex;
+    flex-direction: column; 
+}
+#tela .commands{
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 120px;
+}
+.commands .photo{
+    background-color: #48c071;
+}
+#tela .orientation{
+    height: 60px;
+    line-height: 1.3em;
+    font-size: 14px;
+    border-top: 1px solid #000;
+    padding-left: 10px;
+    
+}
+#keyboards{    
+    background-color: #403a3a;
+}
+.primary-keyboard{    
+    padding: 20px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap: 15px;    
+    
+}
+.primary-item{
+    padding: 10px 20px;
+    background-color: #000;
+    color: #f0ede4;
+    font-size: 1.56rem;
+    font-weight: bold;
+}
+.secondary-keyboard{
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   gap: 15px;
+   padding: 10px;
+}
+.secondary-item{
+    color: #1f1f1f;
+    font-weight: bold;
+    letter-spacing: .1em;
+}
+.btn-correct{
+    padding: 10px;
+    background-color: #F09046;  
+}
+.btn-confirm{
+    padding: 15px 10px;
+    background-color: #48c071;    
+}
+
+
+@media (max-width: 500px) {
+    #urna{
+        grid-template-columns: 1fr;
+    }
+}
+
+.informations-numbers{
+    width: 20px;
+    height: 20px;
+}
