@@ -5,7 +5,7 @@ let stages = [
         candidate:[{
             number: 10,
             name: "Lisa Simpson",
-            foto: [{url: "lisa.jpg"}]
+            foto: "./assets/imgs/lisa.jpg"
         },
         {
             number: 15,
@@ -21,5 +21,5 @@ let stages = [
     }
 ]
 
-console.log(stages[0].candidate[2])
+// console.log(stages[0].candidate[2])
  
