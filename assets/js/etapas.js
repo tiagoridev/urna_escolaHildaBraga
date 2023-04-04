@@ -1,4 +1,4 @@
-let candidates = [
+let stages = [
     {
         post: "REPRESENTANTE DA TURMA",
         numbers: 2,
@@ -21,5 +21,5 @@ let candidates = [
     }
 ]
 
-console.log(candidates[0].candidate[2])
+console.log(stages[0].candidate[2])
  

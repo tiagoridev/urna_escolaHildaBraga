@@ -39,9 +39,6 @@ body{
     /* background-color: blue; */
     padding: 1.25rem 0.63rem;
 }
-.commands .photo{
-    /* background-color: #48c071; */
-}
 .informations{
     display: flex;
     flex-direction: column;
