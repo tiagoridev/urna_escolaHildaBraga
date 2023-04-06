@@ -15,6 +15,7 @@ const btnClear = document.querySelector('.btn-correct')
 const btnConfirm = document.querySelector('.btn-confirm');
 let resultado = document.querySelector('.resultado');
 let lisaVotes = 0;
+let ruannVotes = 0;
 let bartVotes = 0;
 let milhouseVotes = 0; 
 
@@ -82,6 +83,10 @@ function updateScreen(){
             show() 
             candidatesName.innerHTML = stages[0].candidate[2].name;
             photo.innerHTML = `<img src="${stages[0].candidate[2].foto[0].src}">`;
+        case '80': 
+            show() 
+            candidatesName.innerHTML = stages[0].candidate[3].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[3].foto[0].src}">`;
         break;
         default:
             if(codigo.length === 2){
@@ -148,12 +153,15 @@ updateScreen()
 
 // let lisaVotes = 0;
 
-function confirmVote() {
-  if (+codigo === 10) {
-    
+function confirmVote() {   // PAREI AQUI, FALTA CRIAR TELA DE RESULTADOS E EXIBIR NA TELA
+  if (+codigo === 10) {    
     resultado.innerHTML = lisaVotes += 1;
     localStorage.setItem('Lisa', resultado.innerHTML);
     console.log(`Total de votos da Lisa: ${lisaVotes}`);
+  } else if (+codigo === 80){
+    resultado.innerHTML = ruannVotes += 1;
+    localStorage.setItem('Ruann', resultado.innerHTML);
+    console.log(`Total de votos da Lisa: ${ruannVotes}`);
   }
 }
 btnConfirm.addEventListener('click', confirmVote);

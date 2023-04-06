@@ -14,8 +14,13 @@ let stages = [
         },
         {
             code: 20,
-            name: "Milhouse",
-            foto: [{src: "./assets/imgs/milhouse.jpg"}]
+            name: "Ana Sophia",
+            foto: [{src: "./assets/imgs/anaSophia20.jpeg"}]
+        },
+        {
+            code: 80,
+            name: "Ruann",
+            foto: [{src: "./assets/imgs/ruann80.jpeg"}]
         },
         ]
     }
