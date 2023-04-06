@@ -7,13 +7,38 @@ let orientations = document.querySelector('.orientation');
 let photo = document.querySelector('.photo');
 let numbers = document.querySelector('.numbers');
 const btnCorrect = document.querySelector('.btn-correct');
+let btns = document.querySelectorAll(".primary-item")
+let btnConfirm = document.querySelector('.btn-confirm');
+let etapa = 0;
+let inputs = [...document.querySelectorAll('.informations-numbers')];
+
+let value = inputs.value;
+let currentInputIndex = 0;
+
+
+// document.querySelectorAll('.primary-item').forEach((btn) => {
+//   btn.addEventListener('click', () => {
+//     const currentInput = inputs[currentInputIndex];
+//     if (currentInputIndex < inputs.length && currentInput.value.length < 1) {
+//       currentInput.value = btn.textContent;
+//       currentInput.classList.remove('blink');
+//       currentInputIndex++;
+//       if (currentInputIndex < inputs.length) {
+//         inputs[currentInputIndex].classList.add('blink');
+//       } else {
+//         updadeScreen()
+//       }
+//     }
+//   });
+// });
+
 
 // let keyboardNumbers = [...document.querySelectorAll(".primary-item")];
 // let input = document.querySelector('.informations-numbers.blink')
 
 
 
-// FAZ OS ELEMENTOS NÃO APARECEREM NA TELA INICIAL
+// ESCONDE NA TELA INICIAL
 function hide(){
   candidatesName.style.visibility = 'hidden';
   photo.style.visibility = 'hidden';
@@ -21,42 +46,118 @@ function hide(){
 }
 hide();
 
+
+//EXECUTA PREENCHIMENTO DOS DADOS NO INPUT
+function start(){
+  
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const currentInput = inputs[currentInputIndex];
+        if(currentInputIndex < inputs.length && currentInput.value.length < 1){
+          currentInput.value = btn.textContent;
+          currentInput.classList.remove('blink');
+          currentInputIndex++;
+            if(currentInputIndex < inputs.length){
+              inputs[currentInputIndex].classList.add('blink')
+            }
+            updadeScreen()
+        }
+    })
+  })
+}
+start()
+
+/* DESATIVADO 
+
+// let inputs = [...document.querySelectorAll('.informations-numbers')];
+// let value = inputs.value;
+// let currentInputIndex = 0;
+
+// document.querySelectorAll('.primary-item').forEach((btn) => {
+//   btn.addEventListener('click', () => {
+//     const currentInput = inputs[currentInputIndex];
+//     if (currentInputIndex < inputs.length && currentInput.value.length < 1) {
+//       currentInput.value = btn.textContent;
+//       currentInput.classList.remove('blink');
+//       currentInputIndex++;
+//       if (currentInputIndex < inputs.length) {
+//         inputs[currentInputIndex].classList.add('blink');
+//       } else {
+//         updadeScreen()
+//       }
+//     }
+//   });
+// });
+
+
+
+        DESATIVADO    */ 
+
+// MOSTRA ELEMENTOS
 function show(){
   candidatesName.style.visibility = 'visible';
   photo.style.visibility = 'visible';
   orientations.style.visibility = 'visible';
 }
 
-
 // RELACIONA O NUMERO DIGITADO COM OS CANDIDATOS CADASTRADOS.
-function mostrar(){
-  let voto = inputs[0].value + inputs[1].value;  
-  
+function updadeScreen(){ 
+  let voto =  `${inputs[0].value}${inputs[1].value}`
   switch (voto) {
       case '10':
         show() 
         candidatesName.innerHTML = stages[0].candidate[0].name;
-        photo.innerHTML = stages[0].candidate[0].foto[0];
-      
+        photo.innerHTML = `<img src="${stages[0].candidate[0].foto[0].src}">`;
+        
       break;
       case '15':
-        console.log(stages[0].candidate[1])
+        show() 
+        candidatesName.innerHTML = stages[0].candidate[1].name;
+        photo.innerHTML = `<img src="${stages[0].candidate[1].foto[0].src}">`;
       break;
       case '20':
-        console.log(stages[0].candidate[2])
+        show() 
+        candidatesName.innerHTML = stages[0].candidate[2].name;
+        photo.innerHTML = `<img src="${stages[0].candidate[2].foto[0].src}">`;
       break;
-    default:       
-      alert('CANDIDATO NÃO LOCALIZADO, POR FAVOR, TENTE NOVAMENTE.');
+      default:
+        
       break;
-  }  
+  }     
+
 }
 
 
+
 // CORRIGE OS NUMEROS DIGITADOS
-btnCorrect.addEventListener('click', function(){
-  inputs[0].value = '';
-  inputs[1].value = '';
+btnCorrect.addEventListener('click', function(){  
+  // inputs[0].value = '' ;  
+  // inputs[1].value = '' ; 
+  // hide();  
+  location.reload() // refresh na página
+
 })
+
+
+
+function confirm(){
+  let confirmedVote =  `${inputs[0].value}${inputs[1].value}`;
+  let lisa = 0
+
+  switch (confirmedVote) {
+    case '10':
+      lisa = lisa + 2;
+      console.log(lisa);
+      
+      break;
+  
+    default:
+      break;
+  }
+  start();
+}
+
+btnConfirm.addEventListener('click', confirm);
 
 
 
@@ -98,22 +199,23 @@ btnCorrect.addEventListener('click', function(){
 
   
 // FAZ O NÚMERO SER DIGITADO E PULAR PARA PRÓXIMA CASA.  
-let inputs = [...document.querySelectorAll('.informations-numbers')];
-let value = inputs.value;
-let currentInputIndex = 0;
+// let inputs = [...document.querySelectorAll('.informations-numbers')];
+// let value = inputs.value;
+// let currentInputIndex = 0;
 
-document.querySelectorAll('.primary-item').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const currentInput = inputs[currentInputIndex];
-    if (currentInputIndex < inputs.length && currentInput.value.length < 1) {
-      currentInput.value = btn.textContent;
-      currentInput.classList.remove('blink');
-      currentInputIndex++;
-      if (currentInputIndex < inputs.length) {
-        inputs[currentInputIndex].classList.add('blink');
-      } else {
-        mostrar()
-      }
-    }
-  });
-});
+// document.querySelectorAll('.primary-item').forEach((btn) => {
+//   btn.addEventListener('click', () => {
+//     const currentInput = inputs[currentInputIndex];
+//     if (currentInputIndex < inputs.length && currentInput.value.length < 1) {
+//       currentInput.value = btn.textContent;
+//       currentInput.classList.remove('blink');
+//       currentInputIndex++;
+//       if (currentInputIndex < inputs.length) {
+//         inputs[currentInputIndex].classList.add('blink');
+//       } else {
+//         updadeScreen()
+//       }
+//     }
+//   });
+// });
+
