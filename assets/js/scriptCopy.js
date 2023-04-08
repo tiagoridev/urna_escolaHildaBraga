@@ -29,13 +29,6 @@ function hide(){
 }
 hide()
 
-function show(){
-    candidatesName.style.visibility = 'visible';
-    photo.style.visibility = 'visible';
-    options.style.visibility = 'visible';
-}
-
-// INSERI NUMERO NA TELA CLICANDO NO TECLADO
 function insert(){
     btnsNumbers.forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -53,6 +46,15 @@ function insert(){
 }
 insert()
 
+function show(){
+    candidatesName.style.visibility = 'visible';
+    photo.style.visibility = 'visible';
+    options.style.visibility = 'visible';
+}
+
+// INSERI NUMERO NA TELA CLICANDO NO TECLADO
+
+
 
 // LIMPA NUMERO DO CANDIDATO E TELA.
 function clearScreen(){
@@ -68,7 +70,7 @@ btnClear.addEventListener('click', clearScreen);
 function updateScreen(){    
     codigo = `${input1.value}${input2.value}`;
     switch (codigo) {
-        case '10': 
+        case '20': 
             show();
             candidatesName.innerHTML = stages[0].candidate[0].name;
             photo.innerHTML = `<img src="${stages[0].candidate[0].foto[0].src}">`;
@@ -79,7 +81,7 @@ function updateScreen(){
             candidatesName.innerHTML = stages[0].candidate[1].name;
             photo.innerHTML = `<img src="${stages[0].candidate[1].foto[0].src}">`;
         break;
-        case '20': 
+        case '25': 
             show() 
             candidatesName.innerHTML = stages[0].candidate[2].name;
             photo.innerHTML = `<img src="${stages[0].candidate[2].foto[0].src}">`;
@@ -96,8 +98,7 @@ function updateScreen(){
                 console.log('candidato não encontrado')
             }
             break;
-    }
-    
+    } 
 
 }
 updateScreen()

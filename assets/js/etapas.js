@@ -3,9 +3,9 @@ let stages = [
         post: "REPRESENTANTE DA TURMA",
         numbers: 2,
         candidate:[{
-            code: 10,
-            name: "Lisa Simpson",
-            foto: [{src: "./assets/imgs/lisa.jpg"}]
+            code: 20,
+            name: "Ana Sophia",
+            foto: [{src: "./assets/imgs/anaSophia20.jpeg"}]
         },
         {
             code: 15,
@@ -13,7 +13,7 @@ let stages = [
             foto: [{src: "./assets/imgs/bart.jpg"}]
         },
         {
-            code: 20,
+            code: 0,
             name: "Ana Sophia",
             foto: [{src: "./assets/imgs/anaSophia20.jpeg"}]
         },

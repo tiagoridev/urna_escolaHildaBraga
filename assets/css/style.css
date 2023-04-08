@@ -111,6 +111,7 @@ input.informations-numbers{
 }
 .photo img{
     width: 100%;
+    max-height: auto;
     border: 2px solid black;
     display: flex;
 }
