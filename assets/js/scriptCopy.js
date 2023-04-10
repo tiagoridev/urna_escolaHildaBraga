@@ -1,8 +1,8 @@
 // visibility: hidden;
 // visibility: visible;
-const title = document.querySelector('.informations-title');
-const position = document.querySelector('.position');
-// let boxInputs = [...document.querySelectorAll('.informations-numbers')];
+let title = document.querySelector('.informations-title');
+let position = document.querySelector('.position');
+let boxInputs = document.querySelector('.numbers');
 
 let input1 = document.querySelector('#input1');
 let input2 = document.querySelector('#input2');
@@ -13,6 +13,9 @@ const options = document.querySelector('.orientation');
 const btnsNumbers = [...document.querySelectorAll('.primary-item')]
 const btnClear = document.querySelector('.btn-correct')
 const btnConfirm = document.querySelector('.btn-confirm');
+const btnResult = document.querySelector('.btn-result')
+const btnContinue = document.querySelector('.btn-continue');
+const btnFinish = document.querySelector('.btn-finish');
 let resultado = document.querySelector('.resultado');
 
 let anaVotes = +localStorage.getItem('Ana Sophia');
@@ -28,10 +31,31 @@ let pietroVotes = +localStorage.getItem('Pietro');
 
 
 // ESCONDE ITENS ANTES DE INICIAR VOTAÇÃO
+
+function btns(){
+    btnContinue.style.display = 'none';
+    btnFinish.style.display = 'none';
+    btnClear.style.display = 'block';
+    btnConfirm.style.display = 'block';
+    btnResult.style.display = 'block';
+}
+btnContinue.addEventListener('click', btns)
+
+function btnsResult(){
+    btnContinue.style.display = 'block';
+    btnFinish.style.display = 'block';
+    btnClear.style.display = 'none';
+    btnConfirm.style.display = 'none';
+    btnResult.style.display = 'none';
+}
+
+btnResult.addEventListener('click', btnsResult)
+
 function hide(){
     candidatesName.style.visibility = 'hidden';
     photo.style.visibility = 'hidden';
     options.style.visibility = 'hidden';
+    btns()
 }
 hide()
 
@@ -189,6 +213,10 @@ updateScreen()
 
 // let lisaVotes = 0;
 
+function finalMsg(){
+    position.innerHTML = 'OBRIGADO POR VOTAR';
+}
+
 function confirmVote() {   // PAREI AQUI, FALTA CRIAR TELA DE RESULTADOS E EXIBIR NA TELA
   if (codigo === '20') {    
     resultado.innerHTML = anaVotes += 1;
@@ -222,9 +250,18 @@ function confirmVote() {   // PAREI AQUI, FALTA CRIAR TELA DE RESULTADOS E EXIBI
     resultado.innerHTML = pietroVotes += 1;
     localStorage.setItem('Pietro', resultado.innerHTML);
   }
+  
+  finalMsg()
+  clearScreen() 
 
-  clearScreen()
 }
 btnConfirm.addEventListener('click', confirmVote);
+
+function resultVotes(){
+    title.innerHTML = 'TOTAL DE VOTOS';
+    // boxInputs.style.visibility = 'hidden';    
+}
+
+btnResult.addEventListener('click', resultVotes)
 
 

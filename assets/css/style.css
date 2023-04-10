@@ -143,27 +143,30 @@ input.informations-numbers{
    justify-content: center;
    align-items: flex-end;
    gap: 0.94rem;
-   padding:0.63rem;
+   padding:0.6rem;
+   flex-wrap: wrap;
 }
 .secondary-item{
     color: #1f1f1f;
     font-weight: bold;
     letter-spacing: .1em;
-}
-.btn-correct{
     padding: 10px;
+}
+.btn-correct{    
     background-color: #F09046;  
 }
-.btn-confirm{
-    padding: 15px 10px;
+.btn-confirm, .btn-finish{    
     background-color: #48c071;    
 }
-
+.btn-continue{
+    background-color: rgb(68, 138, 230);
+}
 
 
 @media (max-width: 900px) {
     #tela{
         max-width: 18.75rem;
+        height: 26rem;
     }
     #tela .commands{      
         grid-template-columns: 1fr ;        
@@ -174,8 +177,9 @@ input.informations-numbers{
         width: 22.5rem;
     }
     input.informations-numbers{
-        width: 2.13rem;
-        height: 2.75rem;      
+        width: 2rem;
+        height: 2.5rem;
+        font-size: 2rem;
     }
     .photo{
         grid-row: 2;
