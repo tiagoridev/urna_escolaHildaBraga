@@ -76,20 +76,51 @@ function updateScreen(){
             photo.innerHTML = `<img src="${stages[0].candidate[0].foto[0].src}">`;
             
         break;
-        case '15': 
-            show() 
+        case '19': 
+            show();
             candidatesName.innerHTML = stages[0].candidate[1].name;
-            photo.innerHTML = `<img src="${stages[0].candidate[1].foto[0].src}">`;
+            photo.innerHTML = `<img src="${stages[0].candidate[1].foto[0].src}">`;            
+        break;
+        case '40': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[2].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[2].foto[0].src}">`;            
         break;
         case '25': 
-            show() 
-            candidatesName.innerHTML = stages[0].candidate[2].name;
-            photo.innerHTML = `<img src="${stages[0].candidate[2].foto[0].src}">`;
-        case '80': 
-            show() 
+            show();
             candidatesName.innerHTML = stages[0].candidate[3].name;
-            photo.innerHTML = `<img src="${stages[0].candidate[3].foto[0].src}">`;
+            photo.innerHTML = `<img src="${stages[0].candidate[3].foto[0].src}">`;            
         break;
+        case '80': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[4].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[4].foto[0].src}">`;            
+        break;
+        case '28': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[5].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[5].foto[0].src}">`;            
+        break;
+        case '29': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[6].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[6].foto[0].src}">`;            
+        break;
+        case '39': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[7].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[7].foto[0].src}">`;            
+        break;
+        case '50': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[8].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[8].foto[0].src}">`;            
+        break;
+        case '22': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[9].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[9].foto[0].src}">`;            
+        break;       
         default:
             if(codigo.length === 2){
                 candidatesName.style.visibility = 'visible';
