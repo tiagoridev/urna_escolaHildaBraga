@@ -14,11 +14,17 @@ const btnsNumbers = [...document.querySelectorAll('.primary-item')]
 const btnClear = document.querySelector('.btn-correct')
 const btnConfirm = document.querySelector('.btn-confirm');
 let resultado = document.querySelector('.resultado');
-let lisaVotes = 0;
-let ruannVotes = 0;
-let bartVotes = 0;
-let milhouseVotes = 0; 
 
+let anaVotes = +localStorage.getItem('Ana Sophia');
+let rayaneVotes = +localStorage.getItem('Rayane');
+let mariaVotes = +localStorage.getItem('Maria');
+let deboraVotes = +localStorage.getItem('Débora');
+let ruannVotes = +localStorage.getItem('Ruann');
+let yasminVotes = +localStorage.getItem('Yasmin');
+let monalizaVotes = +localStorage.getItem('Monaliza');
+let bernardoVotes = +localStorage.getItem('Bernardo');
+let miguelVotes = +localStorage.getItem('Miguel');
+let pietroVotes = +localStorage.getItem('Pietro');
 
 
 // ESCONDE ITENS ANTES DE INICIAR VOTAÇÃO
@@ -41,7 +47,6 @@ function insert(){
             }
             updateScreen()
         })
-
     })
 }
 insert()
@@ -65,7 +70,6 @@ function clearScreen(){
 btnClear.addEventListener('click', clearScreen);
 
 
- 
 // COLOCA DADOS DOS CANDIDATOS NA TELA.
 function updateScreen(){    
     codigo = `${input1.value}${input2.value}`;
@@ -186,19 +190,41 @@ updateScreen()
 // let lisaVotes = 0;
 
 function confirmVote() {   // PAREI AQUI, FALTA CRIAR TELA DE RESULTADOS E EXIBIR NA TELA
-  if (+codigo === 10) {    
-    resultado.innerHTML = lisaVotes += 1;
-    localStorage.setItem('Lisa', resultado.innerHTML);
-    console.log(`Total de votos da Lisa: ${lisaVotes}`);
-  } else if (+codigo === 80){
+  if (codigo === '20') {    
+    resultado.innerHTML = anaVotes += 1;
+    localStorage.setItem('Ana Sophia', resultado.innerHTML);
+    
+  } else if (codigo === '80'){
     resultado.innerHTML = ruannVotes += 1;
-    localStorage.setItem('Ruann', resultado.innerHTML);
-    console.log(`Total de votos da Lisa: ${ruannVotes}`);
+    localStorage.setItem('Ruann', resultado.innerHTML);   
+  } else if (+codigo === 19){
+    resultado.innerHTML = rayaneVotes += 1;
+    localStorage.setItem('Rayane', resultado.innerHTML);
+  } else if (+codigo === 40){
+    resultado.innerHTML = rayaneVotes += 1;
+    localStorage.setItem('Maria', resultado.innerHTML);
+  } else if (+codigo === 25){
+    resultado.innerHTML = deboraVotes += 1;
+    localStorage.setItem('Débora', resultado.innerHTML);
+  } else if (+codigo === 28){
+    resultado.innerHTML = yasminVotes += 1;
+    localStorage.setItem('Yasmin', resultado.innerHTML);
+  } else if (+codigo === 29){
+    resultado.innerHTML = monalizaVotes += 1;
+    localStorage.setItem('Monaliza', resultado.innerHTML);
+  } else if (+codigo === 39){
+    resultado.innerHTML = bernardoVotes += 1;
+    localStorage.setItem('Bernardo', resultado.innerHTML);
+  } else if (+codigo === 50){
+    resultado.innerHTML = miguelVotes += 1;
+    localStorage.setItem('Miguel', resultado.innerHTML);
+  } else if (+codigo === 22){
+    resultado.innerHTML = pietroVotes += 1;
+    localStorage.setItem('Pietro', resultado.innerHTML);
   }
+
+  clearScreen()
 }
 btnConfirm.addEventListener('click', confirmVote);
-
-
-
 
 
