@@ -3,7 +3,7 @@
 let title = document.querySelector('.informations-title');
 let position = document.querySelector('.position');
 let boxInputs = document.querySelector('.numbers');
-
+let thanks = document.querySelector('.thanks');
 let input1 = document.querySelector('#input1');
 let input2 = document.querySelector('#input2');
 let codigo = `${input1.value}${input2.value}`;
@@ -17,6 +17,7 @@ const btnResult = document.querySelector('.btn-result')
 const btnContinue = document.querySelector('.btn-continue');
 const btnFinish = document.querySelector('.btn-finish');
 let resultado = document.querySelector('.resultado');
+const audio = document.querySelector('audio');
 
 let anaVotes = +localStorage.getItem('Ana Sophia');
 let rayaneVotes = +localStorage.getItem('Rayane');
@@ -30,8 +31,9 @@ let miguelVotes = +localStorage.getItem('Miguel');
 let pietroVotes = +localStorage.getItem('Pietro');
 
 
-// ESCONDE ITENS ANTES DE INICIAR VOTAÇÃO
 
+
+// ESCONDE ITENS ANTES DE INICIAR VOTAÇÃO
 function btns(){
     btnContinue.style.display = 'none';
     btnFinish.style.display = 'none';
@@ -88,8 +90,9 @@ function show(){
 // LIMPA NUMERO DO CANDIDATO E TELA.
 function clearScreen(){
     input1.value = '';
-    input2.value = '';    
+    input2.value = '';
     hide()
+    thanks.classList.add('hidden');
 }
 btnClear.addEventListener('click', clearScreen);
 
@@ -163,105 +166,74 @@ function updateScreen(){
 updateScreen()
 
 
-// function confirmVote(){
-//     if( +codigo === 10){
-//         lisaVotes += 1        
-//         console.log(lisaVotes)
-//     }
-// }
-// btnConfirm.addEventListener('click', confirmVote)
+function finalMsg(){    
+    thanks.classList.remove('hidden');
+}
+;
 
-// function updateLisaVotes(){
-//     console.log(`Lisa received ${lisaVotes} votes.`);
-// }
-
-
-
-// function confirmVote(){
-//     if( +codigo === 10){
-//         lisaVotes += 1
-//          let totalVotos = lisaVotes 
-//          console.log(totalVotos)
-//         // updateLisaVotes();
-//     }
-// }
-
-// btnConfirm.addEventListener('click', confirmVote)
-
-
-
-// function confirmVote() {
-//     codigo = `${input1.value}${input2.value}`;
-//     switch (codigo) {
-//         case '10':
-//             let votos = lisaVotes += 1;
-//             console.log(votos)
-//             break;
-//         case '15':
-//             console.log('VOTO NO BART')
-//             break;
-//         case '20':
-//             console.log('VOTO NO MILHOUSE')
-//             break;
-//         default:
-//             break;
-//     }
-
-//     // localStorage.setItem('candidato', +1);
-// //   }
-// }
-
-// let lisaVotes = 0;
-
-function finalMsg(){
-    position.innerHTML = 'OBRIGADO POR VOTAR';
+function start(){
+    clearScreen();
+    insert();
 }
 
 function confirmVote() {   // PAREI AQUI, FALTA CRIAR TELA DE RESULTADOS E EXIBIR NA TELA
-  if (codigo === '20') {    
+  if (codigo === '20')  {    
     resultado.innerHTML = anaVotes += 1;
     localStorage.setItem('Ana Sophia', resultado.innerHTML);
-    
+    audio.play();
   } else if (codigo === '80'){
     resultado.innerHTML = ruannVotes += 1;
-    localStorage.setItem('Ruann', resultado.innerHTML);   
+    localStorage.setItem('Ruann', resultado.innerHTML); 
+    audio.play()  
   } else if (+codigo === 19){
     resultado.innerHTML = rayaneVotes += 1;
     localStorage.setItem('Rayane', resultado.innerHTML);
+    audio.play()
   } else if (+codigo === 40){
     resultado.innerHTML = rayaneVotes += 1;
     localStorage.setItem('Maria', resultado.innerHTML);
+    audio.play()
   } else if (+codigo === 25){
     resultado.innerHTML = deboraVotes += 1;
     localStorage.setItem('Débora', resultado.innerHTML);
+    audio.play()
   } else if (+codigo === 28){
     resultado.innerHTML = yasminVotes += 1;
     localStorage.setItem('Yasmin', resultado.innerHTML);
+    audio.play()
   } else if (+codigo === 29){
     resultado.innerHTML = monalizaVotes += 1;
     localStorage.setItem('Monaliza', resultado.innerHTML);
+    audio.play()
   } else if (+codigo === 39){
     resultado.innerHTML = bernardoVotes += 1;
     localStorage.setItem('Bernardo', resultado.innerHTML);
+    audio.play()
   } else if (+codigo === 50){
     resultado.innerHTML = miguelVotes += 1;
     localStorage.setItem('Miguel', resultado.innerHTML);
+    audio.play()
   } else if (+codigo === 22){
     resultado.innerHTML = pietroVotes += 1;
     localStorage.setItem('Pietro', resultado.innerHTML);
+    audio.play()
   }
   
-  finalMsg()
-  clearScreen() 
+  
+  boxInputs.classList.toggle('hidden');
+  setTimeout(finalMsg, 2000)
+  clearScreen();
+  
+  
 
 }
 btnConfirm.addEventListener('click', confirmVote);
 
 function resultVotes(){
     title.innerHTML = 'TOTAL DE VOTOS';
-    // boxInputs.style.visibility = 'hidden';    
+    // tela.style.visibility = 'hidden';    
 }
-
 btnResult.addEventListener('click', resultVotes)
 
 
+// COLOCAR BOTÃO NOVO VOTO E RESULTADO APÓS APARECER A TELA DE OBRIGADO POR VOTAR.

@@ -10,7 +10,9 @@ button{
     border: none;
     box-shadow: 3px 3px 0px #555;
 }
-
+.hidden{
+    display: none;    
+}
 body{
     display: flex;
     justify-content: center;
@@ -70,6 +72,11 @@ body{
     gap: 5px;
     /* background-color: #F09046; */
 }
+.thanks p{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
 input{
     outline: none; 
 }
@@ -112,7 +119,7 @@ input.informations-numbers{
 .photo img{
     width: 100%;
     max-height: auto;
-    border: 2px solid black;
+    border: 1px solid black;
     display: flex;
 }
 #keyboards{    
@@ -166,7 +173,7 @@ input.informations-numbers{
 @media (max-width: 900px) {
     #tela{
         max-width: 18.75rem;
-        height: 26rem;
+        height: 24rem;
     }
     #tela .commands{      
         grid-template-columns: 1fr ;        
@@ -174,7 +181,15 @@ input.informations-numbers{
     }
     #urna{
         grid-template-columns: 1fr;
-        width: 22.5rem;
+        max-width: 22rem;
+        padding: 1rem;
+    }
+    #school-name{
+        font-size: 1rem;        
+        padding: 5px 0px;         
+    }
+    .informations{
+        gap: .9rem;
     }
     input.informations-numbers{
         width: 2rem;
@@ -184,12 +199,11 @@ input.informations-numbers{
     .photo{
         grid-row: 2;
         width: 5rem;
-        margin: 10px auto 0px; 
-        
+        margin: -20px auto 0px;
     }
     
-    #keyboards{    
-        max-width: 18.75rem;        
+    #keyboards{
+        max-width: 18.75rem;
     }
     .primary-keyboard{
         display: grid;
@@ -199,7 +213,7 @@ input.informations-numbers{
         /* display: flex;
         flex-wrap:wrap;
         justify-content: center;
-        gap: 15px;     */    
+        gap: 15px;     */
     }
     .primary-item{
         padding: 10px 20px;
