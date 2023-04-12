@@ -30,9 +30,6 @@ let bernardoVotes = +localStorage.getItem('Bernardo');
 let miguelVotes = +localStorage.getItem('Miguel');
 let pietroVotes = +localStorage.getItem('Pietro');
 
-
-
-
 // ESCONDE ITENS ANTES DE INICIAR VOTAÇÃO
 function btns(){
     btnContinue.style.display = 'none';
@@ -172,10 +169,10 @@ function finalMsg(){
 }
 ;
 
-function start(){
-    clearScreen();
-    insert();
-}
+// function start(){
+//     clearScreen();
+//     insert();
+// }
 
 function completedVote(){
     boxInputs.classList.add('hidden');
@@ -246,7 +243,7 @@ btnConfirm.addEventListener('click', confirmVote);
 
 
 /* TELA E BOTÕES RESULTADO*/
-function resultVotes(){
+function resultVotes(){    
     title.innerHTML = 'TOTAL DE VOTOS';
     boxInputs.style.visibility = 'hidden';
     document.querySelector('.result').classList.remove('hidden');
@@ -259,7 +256,7 @@ function resultVotes(){
     document.querySelector('.monalizaResult').innerHTML = localStorage.getItem('Monaliza');
     document.querySelector('.bernardoResult').innerHTML = localStorage.getItem('Bernardo');
     document.querySelector('.miguelResult').innerHTML = localStorage.getItem('Miguel');
-    document.querySelector('.pietroResult').innerHTML = localStorage.getItem('Pietro');   
+    document.querySelector('.pietroResult').innerHTML = localStorage.getItem('Pietro');
 }
 btnResult.addEventListener('click', resultVotes);
 
@@ -271,15 +268,3 @@ function voteContinue(){
     boxInputs.style.visibility = 'visible';
 }
 btnContinue.addEventListener('click', voteContinue);
-
-// APAGAR TODOS OS VOTOS
-// DESATIVAR ESTE BOTÃO.
-// function eraseVotes(){
-//     localStorage.clear();    
-//     voteContinue()
-//     btns()
-// }
-// btnFinish.addEventListener('click', eraseVotes);
-
-// COLOCAR BOTÃO NOVO VOTO E RESULTADO APÓS APARECER A TELA DE OBRIGADO POR VOTAR.
-

@@ -213,10 +213,10 @@ input.informations-numbers{
         height: 2.5rem;
         font-size: 2rem;
     }
-    .photo{
+    .photo{        
         grid-row: 2;
         width: 5rem;
-        margin: -20px auto 0px;
+        margin: 10px auto 0px;
     }
     
     #keyboards{
@@ -245,7 +245,7 @@ input.informations-numbers{
     }
     .avisos .btn-continue{
         margin-bottom: 1.88rem;
-        
+        margin-right: 2.5rem;        
     }
 }
 
