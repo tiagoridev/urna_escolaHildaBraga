@@ -27,7 +27,7 @@ body{
 }
 #tela{
     width: 31.25rem;
-    /* height: auto; */
+    height: 24rem;
     background-color: #c1c1c1;
     border: 2px solid #858383 ;
     display: flex;
@@ -37,8 +37,8 @@ body{
 .result ul{
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-top: -40px;
+    gap: 1px;
+    margin-top: -90px;
     margin-left: 80px;
 }
 #tela .commands{
@@ -129,6 +129,9 @@ input.informations-numbers{
     border: 1px solid black;
     display: flex;
 }
+.result ul{
+    margin-top: -50px;
+}
 #keyboards{    
     background-color: #403a3a;
 }
@@ -180,11 +183,18 @@ input.informations-numbers{
 @media (max-width: 900px) {
     #tela{
         max-width: 18.75rem;
-        height: 24rem;
+        height: 23rem;
     }
     #tela .commands{      
         grid-template-columns: 1fr ;        
         padding: 10px 10px;
+    }
+    #tela .orientation{
+        height: 3.75rem;
+        line-height: 1.3em;
+        font-size: 0.80rem;    
+        border-top: 1px solid #000;
+        padding-left: 0.63rem;    
     }
     #urna{
         grid-template-columns: 1fr;
@@ -215,8 +225,9 @@ input.informations-numbers{
     .primary-keyboard{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.94rem;
+        gap: 0.4rem;
         margin-left: 1.25rem;
+        height: 15rem;
         /* display: flex;
         flex-wrap:wrap;
         justify-content: center;
@@ -228,6 +239,13 @@ input.informations-numbers{
         color: #f0ede4;
         font-size: 1.56rem;
         font-weight: bold;
+    }
+    .secondary-keyboard{
+        height: 6.88rem;
+    }
+    .avisos .btn-continue{
+        margin-bottom: 1.88rem;
+        
     }
 }
 

@@ -15,7 +15,7 @@ const btnClear = document.querySelector('.btn-correct')
 const btnConfirm = document.querySelector('.btn-confirm');
 const btnResult = document.querySelector('.btn-result')
 const btnContinue = document.querySelector('.btn-continue');
-const btnFinish = document.querySelector('.btn-finish');
+// const btnFinish = document.querySelector('.btn-finish');
 let resultado = document.querySelector('.resultado');
 const audio = document.querySelector('audio');
 
@@ -36,7 +36,7 @@ let pietroVotes = +localStorage.getItem('Pietro');
 // ESCONDE ITENS ANTES DE INICIAR VOTAÇÃO
 function btns(){
     btnContinue.style.display = 'none';
-    btnFinish.style.display = 'none';
+    // btnFinish.style.display = 'none';
     btnClear.style.display = 'block';
     btnConfirm.style.display = 'block';
     btnResult.style.display = 'block';
@@ -45,7 +45,7 @@ btnContinue.addEventListener('click', btns)
 
 function btnsResult(){
     btnContinue.style.display = 'block';
-    btnFinish.style.display = 'block';
+    // btnFinish.style.display = 'none';
     btnClear.style.display = 'none';
     btnConfirm.style.display = 'none';
     btnResult.style.display = 'none';
@@ -273,12 +273,13 @@ function voteContinue(){
 btnContinue.addEventListener('click', voteContinue);
 
 // APAGAR TODOS OS VOTOS
-function eraseVotes(){
-    localStorage.removeItem('Ruann');
-    voteContinue()
-    btns()
-}
-btnFinish.addEventListener('click', eraseVotes);
+// DESATIVAR ESTE BOTÃO.
+// function eraseVotes(){
+//     localStorage.clear();    
+//     voteContinue()
+//     btns()
+// }
+// btnFinish.addEventListener('click', eraseVotes);
 
 // COLOCAR BOTÃO NOVO VOTO E RESULTADO APÓS APARECER A TELA DE OBRIGADO POR VOTAR.
 
