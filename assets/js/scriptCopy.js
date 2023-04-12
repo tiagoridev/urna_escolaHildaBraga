@@ -97,6 +97,7 @@ function clearScreen(){
 btnClear.addEventListener('click', clearScreen);
 
 
+
 // COLOCA DADOS DOS CANDIDATOS NA TELA.
 function updateScreen(){    
     codigo = `${input1.value}${input2.value}`;
@@ -176,64 +177,108 @@ function start(){
     insert();
 }
 
-function confirmVote() {   // PAREI AQUI, FALTA CRIAR TELA DE RESULTADOS E EXIBIR NA TELA
-  if (codigo === '20')  {    
-    resultado.innerHTML = anaVotes += 1;
-    localStorage.setItem('Ana Sophia', resultado.innerHTML);
-    audio.play();
-  } else if (codigo === '80'){
-    resultado.innerHTML = ruannVotes += 1;
-    localStorage.setItem('Ruann', resultado.innerHTML); 
-    audio.play()  
-  } else if (+codigo === 19){
-    resultado.innerHTML = rayaneVotes += 1;
-    localStorage.setItem('Rayane', resultado.innerHTML);
-    audio.play()
-  } else if (+codigo === 40){
-    resultado.innerHTML = rayaneVotes += 1;
-    localStorage.setItem('Maria', resultado.innerHTML);
-    audio.play()
-  } else if (+codigo === 25){
-    resultado.innerHTML = deboraVotes += 1;
-    localStorage.setItem('Débora', resultado.innerHTML);
-    audio.play()
-  } else if (+codigo === 28){
-    resultado.innerHTML = yasminVotes += 1;
-    localStorage.setItem('Yasmin', resultado.innerHTML);
-    audio.play()
-  } else if (+codigo === 29){
-    resultado.innerHTML = monalizaVotes += 1;
-    localStorage.setItem('Monaliza', resultado.innerHTML);
-    audio.play()
-  } else if (+codigo === 39){
-    resultado.innerHTML = bernardoVotes += 1;
-    localStorage.setItem('Bernardo', resultado.innerHTML);
-    audio.play()
-  } else if (+codigo === 50){
-    resultado.innerHTML = miguelVotes += 1;
-    localStorage.setItem('Miguel', resultado.innerHTML);
-    audio.play()
-  } else if (+codigo === 22){
-    resultado.innerHTML = pietroVotes += 1;
-    localStorage.setItem('Pietro', resultado.innerHTML);
-    audio.play()
-  }
-  
-  
-  boxInputs.classList.toggle('hidden');
-  setTimeout(finalMsg, 2000)
-  clearScreen();
-  
-  
+function completedVote(){
+    boxInputs.classList.add('hidden');
+    finalMsg()
+    hide()
+    setTimeout(clearScreen, 2000)    
+}
 
+function confirmVote() { 
+if (input1.value !== ''){
+    if (codigo === '20')  {    
+        resultado.innerHTML = anaVotes += 1;
+        localStorage.setItem('Ana Sophia', resultado.innerHTML);
+        audio.play();
+        completedVote();   
+      } else if (codigo === '80'){
+        resultado.innerHTML = ruannVotes += 1;
+        localStorage.setItem('Ruann', resultado.innerHTML); 
+        audio.play(); 
+        completedVote(); 
+      } else if (+codigo === 19){
+        resultado.innerHTML = rayaneVotes += 1;
+        localStorage.setItem('Rayane', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 40){
+        resultado.innerHTML = rayaneVotes += 1;
+        localStorage.setItem('Maria', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 25){
+        resultado.innerHTML = deboraVotes += 1;
+        localStorage.setItem('Débora', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 28){
+        resultado.innerHTML = yasminVotes += 1;
+        localStorage.setItem('Yasmin', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 29){
+        resultado.innerHTML = monalizaVotes += 1;
+        localStorage.setItem('Monaliza', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 39){
+        resultado.innerHTML = bernardoVotes += 1;
+        localStorage.setItem('Bernardo', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 50){
+        resultado.innerHTML = miguelVotes += 1;
+        localStorage.setItem('Miguel', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 22){
+        resultado.innerHTML = pietroVotes += 1;
+        localStorage.setItem('Pietro', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      }
+    } else {
+    
+}
+  
 }
 btnConfirm.addEventListener('click', confirmVote);
 
+
+/* TELA E BOTÕES RESULTADO*/
 function resultVotes(){
     title.innerHTML = 'TOTAL DE VOTOS';
-    // tela.style.visibility = 'hidden';    
+    boxInputs.style.visibility = 'hidden';
+    document.querySelector('.result').classList.remove('hidden');
+    document.querySelector('.anaResult').innerHTML = localStorage.getItem('Ana Sophia');
+    document.querySelector('.rayaneResult').innerHTML = localStorage.getItem('Rayane');
+    document.querySelector('.mariaResult').innerHTML = localStorage.getItem('Maria');
+    document.querySelector('.deboraResult').innerHTML = localStorage.getItem('Débora');
+    document.querySelector('.ruannResult').innerHTML = localStorage.getItem('Ruann');
+    document.querySelector('.yasminResult').innerHTML = localStorage.getItem('Yasmin');
+    document.querySelector('.monalizaResult').innerHTML = localStorage.getItem('Monaliza');
+    document.querySelector('.bernardoResult').innerHTML = localStorage.getItem('Bernardo');
+    document.querySelector('.miguelResult').innerHTML = localStorage.getItem('Miguel');
+    document.querySelector('.pietroResult').innerHTML = localStorage.getItem('Pietro');   
 }
-btnResult.addEventListener('click', resultVotes)
+btnResult.addEventListener('click', resultVotes);
 
+
+//CONTINUAR VOTAÇÃO
+function voteContinue(){
+    title.innerHTML = 'SEU VOTO PARA:';
+    document.querySelector('.result').classList.add('hidden');
+    boxInputs.style.visibility = 'visible';
+}
+btnContinue.addEventListener('click', voteContinue);
+
+// APAGAR TODOS OS VOTOS
+function eraseVotes(){
+    localStorage.removeItem('Ruann');
+    voteContinue()
+    btns()
+}
+btnFinish.addEventListener('click', eraseVotes);
 
 // COLOCAR BOTÃO NOVO VOTO E RESULTADO APÓS APARECER A TELA DE OBRIGADO POR VOTAR.
+

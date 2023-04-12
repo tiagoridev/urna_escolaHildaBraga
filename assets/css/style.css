@@ -11,7 +11,7 @@ button{
     box-shadow: 3px 3px 0px #555;
 }
 .hidden{
-    display: none;    
+    display: none;
 }
 body{
     display: flex;
@@ -33,6 +33,13 @@ body{
     display: flex;
     flex-direction: column; 
     
+}
+.result ul{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: -40px;
+    margin-left: 80px;
 }
 #tela .commands{
     flex: 1;
