@@ -1,221 +1,239 @@
-// visibility: hidden;
-// visibility: visible;
-
 let title = document.querySelector('.informations-title');
-let candidatesName = document.querySelector('.candidates-name')
-let orientations = document.querySelector('.orientation');
+let position = document.querySelector('.position');
+let boxInputs = document.querySelector('.numbers');
+let thanks = document.querySelector('.thanks');
+let input1 = document.querySelector('#input1');
+let input2 = document.querySelector('#input2');
+let codigo = `${input1.value}${input2.value}`;
+let candidatesName = document.querySelector('.candidates-name');
 let photo = document.querySelector('.photo');
-let numbers = document.querySelector('.numbers');
-const btnCorrect = document.querySelector('.btn-correct');
-let btns = document.querySelectorAll(".primary-item")
-let btnConfirm = document.querySelector('.btn-confirm');
-let etapa = 0;
-let inputs = [...document.querySelectorAll('.informations-numbers')];
+const options = document.querySelector('.orientation');
+const btnsNumbers = [...document.querySelectorAll('.primary-item')]
+const btnClear = document.querySelector('.btn-correct')
+const btnConfirm = document.querySelector('.btn-confirm');
+const btnResult = document.querySelector('.btn-result')
+const btnContinue = document.querySelector('.btn-continue');
+let resultado = document.querySelector('.resultado');
+const audio = document.querySelector('audio');
+//armazenamento
+let anaVotes = +localStorage.getItem('Ana Sophia');
+let rayaneVotes = +localStorage.getItem('Rayane');
+let mariaVotes = +localStorage.getItem('Maria');
+let deboraVotes = +localStorage.getItem('Débora');
+let ruannVotes = +localStorage.getItem('Ruann');
+let yasminVotes = +localStorage.getItem('Yasmin');
+let monalizaVotes = +localStorage.getItem('Monaliza');
+let bernardoVotes = +localStorage.getItem('Bernardo');
+let miguelVotes = +localStorage.getItem('Miguel');
+let pietroVotes = +localStorage.getItem('Pietro');
+// esconde itens antes de iniciar a votação
+function btns(){
+    btnContinue.style.display = 'none';   
+    btnClear.style.display = 'block';
+    btnConfirm.style.display = 'block';
+    btnResult.style.display = 'block';
+}
+btnContinue.addEventListener('click', btns)
 
-let value = inputs.value;
-let currentInputIndex = 0;
+function btnsResult(){
+    btnContinue.style.display = 'block';    
+    btnClear.style.display = 'none';
+    btnConfirm.style.display = 'none';
+    btnResult.style.display = 'none';
+}
+btnResult.addEventListener('click', btnsResult)
 
-
-// document.querySelectorAll('.primary-item').forEach((btn) => {
-//   btn.addEventListener('click', () => {
-//     const currentInput = inputs[currentInputIndex];
-//     if (currentInputIndex < inputs.length && currentInput.value.length < 1) {
-//       currentInput.value = btn.textContent;
-//       currentInput.classList.remove('blink');
-//       currentInputIndex++;
-//       if (currentInputIndex < inputs.length) {
-//         inputs[currentInputIndex].classList.add('blink');
-//       } else {
-//         updadeScreen()
-//       }
-//     }
-//   });
-// });
-
-
-// let keyboardNumbers = [...document.querySelectorAll(".primary-item")];
-// let input = document.querySelector('.informations-numbers.blink')
-
-
-
-// ESCONDE NA TELA INICIAL
 function hide(){
-  candidatesName.style.visibility = 'hidden';
-  photo.style.visibility = 'hidden';
-  orientations.style.visibility = 'hidden';
+    candidatesName.style.visibility = 'hidden';
+    photo.style.visibility = 'hidden';
+    options.style.visibility = 'hidden';
+    btns()
 }
-hide();
+hide()
 
-
-//EXECUTA PREENCHIMENTO DOS DADOS NO INPUT
-function start(){
-  
-  btns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const currentInput = inputs[currentInputIndex];
-        if(currentInputIndex < inputs.length && currentInput.value.length < 1){
-          currentInput.value = btn.textContent;
-          currentInput.classList.remove('blink');
-          currentInputIndex++;
-            if(currentInputIndex < inputs.length){
-              inputs[currentInputIndex].classList.add('blink')
+function insert(){
+    btnsNumbers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            if(input1.value === ''){
+                input1.value = +btn.textContent;
+            } else if (input2.value === ''){
+                input2.value = +btn.textContent;
             }
-            updadeScreen()
-        }
+            updateScreen()
+        })
     })
-  })
 }
-start()
+insert()
 
-/* DESATIVADO 
-
-// let inputs = [...document.querySelectorAll('.informations-numbers')];
-// let value = inputs.value;
-// let currentInputIndex = 0;
-
-// document.querySelectorAll('.primary-item').forEach((btn) => {
-//   btn.addEventListener('click', () => {
-//     const currentInput = inputs[currentInputIndex];
-//     if (currentInputIndex < inputs.length && currentInput.value.length < 1) {
-//       currentInput.value = btn.textContent;
-//       currentInput.classList.remove('blink');
-//       currentInputIndex++;
-//       if (currentInputIndex < inputs.length) {
-//         inputs[currentInputIndex].classList.add('blink');
-//       } else {
-//         updadeScreen()
-//       }
-//     }
-//   });
-// });
-
-
-
-        DESATIVADO    */ 
-
-// MOSTRA ELEMENTOS
 function show(){
-  candidatesName.style.visibility = 'visible';
-  photo.style.visibility = 'visible';
-  orientations.style.visibility = 'visible';
+    candidatesName.style.visibility = 'visible';
+    photo.style.visibility = 'visible';
+    options.style.visibility = 'visible';
 }
 
-// RELACIONA O NUMERO DIGITADO COM OS CANDIDATOS CADASTRADOS.
-function updadeScreen(){ 
-  let voto =  `${inputs[0].value}${inputs[1].value}`
-  switch (voto) {
-      case '10':
-        show() 
-        candidatesName.innerHTML = stages[0].candidate[0].name;
-        photo.innerHTML = `<img src="${stages[0].candidate[0].foto[0].src}">`;
-        
-      break;
-      case '15':
-        show() 
-        candidatesName.innerHTML = stages[0].candidate[1].name;
-        photo.innerHTML = `<img src="${stages[0].candidate[1].foto[0].src}">`;
-      break;
-      case '20':
-        show() 
-        candidatesName.innerHTML = stages[0].candidate[2].name;
-        photo.innerHTML = `<img src="${stages[0].candidate[2].foto[0].src}">`;
-      break;
-      default:
-        
-      break;
-  }     
+function clearScreen(){
+    input1.value = '';
+    input2.value = '';
+    hide()
+    thanks.classList.add('hidden');
+}
+btnClear.addEventListener('click', clearScreen);
 
+function updateScreen(){    
+    codigo = `${input1.value}${input2.value}`;
+    switch (codigo) {
+        case '20': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[0].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[0].foto[0].src}">`;
+            
+        break;
+        case '19': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[1].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[1].foto[0].src}">`;            
+        break;
+        case '40': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[2].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[2].foto[0].src}">`;            
+        break;
+        case '25': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[3].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[3].foto[0].src}">`;            
+        break;
+        case '80': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[4].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[4].foto[0].src}">`;            
+        break;
+        case '28': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[5].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[5].foto[0].src}">`;            
+        break;
+        case '29': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[6].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[6].foto[0].src}">`;            
+        break;
+        case '39': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[7].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[7].foto[0].src}">`;            
+        break;
+        case '50': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[8].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[8].foto[0].src}">`;            
+        break;
+        case '22': 
+            show();
+            candidatesName.innerHTML = stages[0].candidate[9].name;
+            photo.innerHTML = `<img src="${stages[0].candidate[9].foto[0].src}">`;            
+        break;       
+        default:
+            if(codigo.length === 2){
+                candidatesName.style.visibility = 'visible';
+                candidatesName.innerHTML = `Candidato não localizado.</br>
+                                            Por favor, clique no botão <strong>CORRIGE</strong> e tente novamente.`
+                console.log('candidato não encontrado')
+            }
+            break;
+    } 
+}
+updateScreen()
+
+function finalMsg(){    
+    thanks.classList.remove('hidden');
 }
 
-
-
-// CORRIGE OS NUMEROS DIGITADOS
-btnCorrect.addEventListener('click', function(){  
-  // inputs[0].value = '' ;  
-  // inputs[1].value = '' ; 
-  // hide();  
-  location.reload() // refresh na página
-
-})
-
-
-
-function confirm(){
-  let confirmedVote =  `${inputs[0].value}${inputs[1].value}`;
-  let lisa = 0
-
-  switch (confirmedVote) {
-    case '10':
-      lisa = lisa + 2;
-      console.log(lisa);
-      
-      break;
-  
-    default:
-      break;
-  }
-  start();
+function completedVote(){
+    boxInputs.classList.add('hidden');
+    finalMsg()
+    hide()
+    setTimeout(clearScreen, 2000)    
 }
 
-btnConfirm.addEventListener('click', confirm);
+function confirmVote() { 
+if (input1.value !== ''){
+    if (codigo === '20')  {    
+        resultado.innerHTML = anaVotes += 1;
+        localStorage.setItem('Ana Sophia', resultado.innerHTML);
+        audio.play();
+        completedVote();   
+      } else if (codigo === '80'){
+        resultado.innerHTML = ruannVotes += 1;
+        localStorage.setItem('Ruann', resultado.innerHTML); 
+        audio.play(); 
+        completedVote(); 
+      } else if (+codigo === 19){
+        resultado.innerHTML = rayaneVotes += 1;
+        localStorage.setItem('Rayane', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 40){
+        resultado.innerHTML = rayaneVotes += 1;
+        localStorage.setItem('Maria', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 25){
+        resultado.innerHTML = deboraVotes += 1;
+        localStorage.setItem('Débora', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 28){
+        resultado.innerHTML = yasminVotes += 1;
+        localStorage.setItem('Yasmin', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 29){
+        resultado.innerHTML = monalizaVotes += 1;
+        localStorage.setItem('Monaliza', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 39){
+        resultado.innerHTML = bernardoVotes += 1;
+        localStorage.setItem('Bernardo', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 50){
+        resultado.innerHTML = miguelVotes += 1;
+        localStorage.setItem('Miguel', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      } else if (+codigo === 22){
+        resultado.innerHTML = pietroVotes += 1;
+        localStorage.setItem('Pietro', resultado.innerHTML);
+        audio.play();
+        completedVote();
+      }
+    } else {    
+}
+}
+btnConfirm.addEventListener('click', confirmVote);
 
+function resultVotes(){     
+    title.innerHTML = 'TOTAL DE VOTOS';
+    boxInputs.style.visibility = 'hidden';
+    document.querySelector('.result').classList.remove('hidden');
+    document.querySelector('.anaResult').innerHTML = localStorage.getItem('Ana Sophia');
+    document.querySelector('.rayaneResult').innerHTML = localStorage.getItem('Rayane');
+    document.querySelector('.mariaResult').innerHTML = localStorage.getItem('Maria');
+    document.querySelector('.deboraResult').innerHTML = localStorage.getItem('Débora');
+    document.querySelector('.ruannResult').innerHTML = localStorage.getItem('Ruann');
+    document.querySelector('.yasminResult').innerHTML = localStorage.getItem('Yasmin');
+    document.querySelector('.monalizaResult').innerHTML = localStorage.getItem('Monaliza');
+    document.querySelector('.bernardoResult').innerHTML = localStorage.getItem('Bernardo');
+    document.querySelector('.miguelResult').innerHTML = localStorage.getItem('Miguel');
+    document.querySelector('.pietroResult').innerHTML = localStorage.getItem('Pietro');
+}
+btnResult.addEventListener('click', resultVotes);
 
-
-// function update(){
-//     alert ("VOTAÇÃO FINALIZADA")
-// }
-
-  // keyboardNumbers.forEach( numero => {
-  //   numero.addEventListener('click', () => {
-  //       if(input.value === number){            
-  //           input.value += numero.textContent;  
-  //           input.classList.remove('blink');
-  //             if(input.nextElementSibling === null){
-  //           input.nextElementSibling.classList.add('blink'); 
-  //             } 
-  //       } else {
-  //       alert("AGUARDE") }
-  //   })
-  // })
-
-  // let elNumber = '';
-
-  // keyboardNumbers.forEach( btn => {
-  //   btn.addEventListener('click', () => {
-  //     if( typeof +input.value === 'number' ) {
-  //       input.innerHTML = btn;
-  //       elNumber = `${elNumber}${btn}`
-        
-
-
-  //       input.value = btn.textContent;
-  //       input.classList.remove('blink');
-  //       input.nextElementSibling.classList.add('blink');
-  //     }
-  //   })
-  // })
-
-
-
-  
-// FAZ O NÚMERO SER DIGITADO E PULAR PARA PRÓXIMA CASA.  
-// let inputs = [...document.querySelectorAll('.informations-numbers')];
-// let value = inputs.value;
-// let currentInputIndex = 0;
-
-// document.querySelectorAll('.primary-item').forEach((btn) => {
-//   btn.addEventListener('click', () => {
-//     const currentInput = inputs[currentInputIndex];
-//     if (currentInputIndex < inputs.length && currentInput.value.length < 1) {
-//       currentInput.value = btn.textContent;
-//       currentInput.classList.remove('blink');
-//       currentInputIndex++;
-//       if (currentInputIndex < inputs.length) {
-//         inputs[currentInputIndex].classList.add('blink');
-//       } else {
-//         updadeScreen()
-//       }
-//     }
-//   });
-// });
-
+function voteContinue(){
+    title.innerHTML = 'SEU VOTO PARA:';
+    document.querySelector('.result').classList.add('hidden');
+    boxInputs.style.visibility = 'visible';
+}
+btnContinue.addEventListener('click', voteContinue);

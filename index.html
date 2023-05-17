@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simulador de urna eletrônica para uso de alunos da Escola Municipalizada Jayme Siciliano">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="description" content="Simulador de urna eletrônica para uso de alunos da Escola Municipal Hilda Braga">
+    <link rel="shortcut icon" href="./assets/imgs/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Urna Eletrônica</title>
 </head>
@@ -18,9 +19,7 @@
                     <h2 class="position">REPRESENTANTE DO 3° ANO</h2>
                     <div class="numbers">
                         <input class="informations-numbers" type="number" readonly="readonly" id="input1">
-                        <input class="informations-numbers " type="number" readonly="readonly" id="input2" >
-                        <!-- <input class="informations-numbers" type="number" readonly="readonly" id="input3" >
-                        <input class="informations-numbers" type="number" readonly="readonly" id="input4" > -->
+                        <input class="informations-numbers " type="number" readonly="readonly" id="input2" >                        
                     </div>
                     <div class="thanks hidden">
                         <p>
@@ -64,9 +63,7 @@
                     </div>
                     <p class="candidates-name"></p>
                 </div>
-                <div class="photo">                    
-                        <img src="./assets/imgs/bart.jpg" alt="Foto do candidato Bart">
-                </div>
+                <div class="photo"><!-- <img src="./assets/imgs/bart.jpg" alt="Foto do candidato Bart"> --></div>
            </section>
            <div class="orientation">
             <p>Aperte a tecla: <br/>
@@ -96,8 +93,7 @@
                     <li ><button class="secondary-item btn-correct" >CORRIGE</button></li>
                     <li ><button class="secondary-item btn-confirm" >CONFIRMA</button></li>
                     <li ><button class="secondary-item btn-result" >RESULTADO</button></li> 
-                    <li ><button class="secondary-item btn-continue" >CONTINUAR VOTAÇÃO</button></li>  
-                    <!-- <li ><button class="secondary-item btn-finish" >APAGAR VOTAÇÃO</button></li>                  -->
+                    <li ><button class="secondary-item btn-continue" >CONTINUAR VOTAÇÃO</button></li>                    
                 </ul>
                 <audio src="./confirmaUrna.wav" class="audioConfirm"></audio>
                 </div>
@@ -108,7 +104,8 @@
     <div class="resultado hidden"></div>
 
     <script src="./assets/js/etapas.js"></script>
-    <!-- <script src="./assets/js/script.js"></script> -->
-    <script src="./assets/js/scriptCopy.js"></script>
+    <script src="./assets/js/script.js"></script>
+    
+    
 </body>
 </html>

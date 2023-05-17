@@ -1,7 +1,6 @@
 let stages = [
     {
-        post: "REPRESENTANTE DA TURMA",
-        numbers: 2,
+        post: "REPRESENTANTE DA TURMA",        
         candidate:[{
             code: 20,
             name: "Ana Sophia",
@@ -55,6 +54,3 @@ let stages = [
         ]
     }
 ]
-
-// console.log(stages[0].candidate[2])
- 
