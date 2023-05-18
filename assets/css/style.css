@@ -34,7 +34,6 @@ body{
     border: 2px solid #858383 ;
     display: flex;
     flex-direction: column; 
-    
 }
 .result ul{
     display: flex;
@@ -46,8 +45,7 @@ body{
 #tela .commands{
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 7.5rem;
-    /* background-color: blue; */
+    grid-template-columns: 1fr 7.5rem;    
     padding: 1.25rem 0.63rem;
 }
 .informations{
@@ -56,9 +54,7 @@ body{
     gap: 1.25rem;
 }
 #school-name{
-    font-size: 1.25rem;
-    /* text-align: center;
-    background-color: red; */
+    font-size: 1.25rem;    
     padding: 10px 0px; 
     text-align: center;
     background-color: #999292;
@@ -67,7 +63,6 @@ body{
 }
 .informations-title{
     font-size: 1.13rem;
-    /* background-color: purple; */
     text-align: center;
     font-weight: normal;
 }
@@ -79,7 +74,6 @@ body{
     display: flex;
     justify-content: center;
     gap: 5px;
-    /* background-color: #F09046; */
 }
 .thanks p{
     text-align: center;
@@ -91,7 +85,7 @@ input{
 }
 input::-webkit-inner-spin-button {
         -webkit-appearance: none;
-        margin: 0;        
+        margin: 0;
 }
 input.informations-numbers{
     width: 3.13rem;
@@ -100,15 +94,6 @@ input.informations-numbers{
     border: 2px solid #555;
     font-size: 3.75rem;
     text-align: center;
-}
-.blink{
-    animation: blink .8s infinite;
-}
-
-@keyframes blink{
-    0%{ opacity: 0.2;}
-    50% { opacity: 1;}
-    100% { opacity: 0.2;}
 }
 .candidates-name{
     text-align: center;
@@ -141,11 +126,7 @@ input.informations-numbers{
     padding: 1.25rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.94rem;
-    /* display: flex;
-    flex-wrap:wrap;
-    justify-content: center;
-    gap: 15px;     */    
+    gap: 0.94rem;    
 }
 .primary-keyboard li:last-child{
     grid-column: 2;
@@ -181,7 +162,7 @@ input.informations-numbers{
     background-color: rgb(68, 138, 230);
 }
 
-
+/******responsive******/
 @media (max-width: 900px) {
     #tela{
         max-width: 18.75rem;
@@ -219,8 +200,7 @@ input.informations-numbers{
         grid-row: 2;
         width: 5rem;
         margin: 10px auto 0px;
-    }
-    
+    }    
     #keyboards{
         max-width: 18.75rem;
     }
@@ -229,11 +209,7 @@ input.informations-numbers{
         grid-template-columns: repeat(3, 1fr);
         gap: 0.4rem;
         margin-left: 1.25rem;
-        height: 15rem;
-        /* display: flex;
-        flex-wrap:wrap;
-        justify-content: center;
-        gap: 15px;     */
+        height: 15rem;       
     }
     .primary-item{
         padding: 10px 20px;
@@ -250,4 +226,3 @@ input.informations-numbers{
         margin-right: 2.5rem;        
     }
 }
-
