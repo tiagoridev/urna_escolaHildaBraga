@@ -6,7 +6,7 @@ Urna eletrônica é um projeto voluntário feito para alunos da Escola Municipal
 
 Neste sistema é possível corrigir números, confirmar e armazenar votos através do localStorage, caso precise apagar os votos computados, limpe os cookies do seu navegador.
 
-Para preservar a imagems dos alunos, substitui suas fotos por desenhos.
+Para preservar as imagens dos alunos, alterei as fotos por desenhos.
 
 ## Tecnologias utilizadas.
 
