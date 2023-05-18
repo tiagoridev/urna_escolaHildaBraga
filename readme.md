@@ -8,6 +8,19 @@ Neste sistema é possível corrigir números, confirmar e armazenar votos atrav�
 
 Para preservar as imagens dos alunos, alterei as fotos por desenhos.
 
+### Número dos candidatos/alunos para testar.
+19 - Rayane </br>
+20 - Ana </br>
+22 - Pietro </br>
+25 - Debora </br>
+28 - Yasmin </br>
+29 - Monaliza </br>
+39 - Bernardo </br>
+40 - Maria </br>
+50 - Miguel </br>
+80 - Ruan
+
+
 ## Tecnologias utilizadas.
 
 <div style="inline_block">
